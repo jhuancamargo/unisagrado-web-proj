@@ -184,3 +184,100 @@ footer {
         grid-template-columns: repeat(3, 1fr); /* 3 colunas */
     }
 }
+
+/* --- POLIMENTO VISUAL ADICIONAL --- */
+.card-produto {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card-produto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+.card-produto img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+}
+
+/* --- ESTILOS DA PÁGINA DE CHECKOUT REFORMULADA --- */
+.checkout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.checkout-header h1 {
+    font-size: 1.8rem;
+}
+.back-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+.checkout-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+.checkout-form .form-group {
+    margin-bottom: 15px;
+}
+.checkout-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.checkout-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Sacola na página de checkout */
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+.summary-item-details {
+    font-weight: 600;
+}
+.summary-item-details span {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--light-text);
+    font-weight: 400;
+}
+.summary-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.quantity-btn {
+    background-color: #eee;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-weight: 600;
+    cursor: pointer;
+}
+.remove-item-checkout {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+@media (min-width: 992px) {
+    .checkout-container {
+        grid-template-columns: 60% 40%; /* Duas colunas em telas maiores */
+    }
+}

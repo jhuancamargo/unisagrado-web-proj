@@ -1,27 +1,50 @@
-// Script para a página checkout.html
-document.addEventListener('DOMContentLoaded', () => {
-    const cartData = JSON.parse(localStorage.getItem('shoppingCart'));
-    const summaryItemsContainer = document.getElementById('summary-items');
-    const summaryTotalEl = document.getElementById('summary-total');
-    const checkoutPayment = document.querySelector('.checkout-payment');
-    let total = 0;
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    </head>
+<body>
+    <nav class="navbar">
+        </nav>
+    
+    <main class="container">
+        <div class="checkout-header">
+            <h1>Finalizar Compra</h1>
+            <a href="index.html" class="back-link">← Voltar ao cardápio</a>
+        </div>
+        
+        <div class="checkout-container">
+            <div class="checkout-left">
+                <div class="section-card">
+                    <h2>Seus Dados</h2>
+                    <form class="checkout-form">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="section-card">
+                    <h2>Método de Pagamento</h2>
+                    <button class="pay-btn">Pagar Agora</button>
+                </div>
+            </div>
+            
+            <div class="checkout-right section-card">
+                <h2>Sua Sacola</h2>
+                <div id="summary-items">
+                    </div>
+                <div class="summary-total">
+                    <span>Total:</span>
+                    <span id="summary-total">R$ 0,00</span>
+                </div>
+            </div>
+        </div>
+    </main>
 
-    if (cartData && cartData.length > 0) {
-        cartData.forEach(item => {
-            const itemEl = document.createElement('div');
-            itemEl.className = 'summary-item';
-            itemEl.innerHTML = `
-                <span>${item.quantity}x ${item.name}</span>
-                <span>R$ ${(item.price * item.quantity).toFixed(2)}</span>
-            `;
-            summaryItemsContainer.appendChild(itemEl);
-            total += item.price * item.quantity;
-        });
-    } else {
-        // Se a sacola estiver vazia, esconde a área de pagamento e mostra uma mensagem
-        summaryItemsContainer.innerHTML = '<p>Sua sacola de compras está vazia. <a href="index.html">Voltar para o cardápio</a>.</p>';
-        checkoutPayment.style.display = 'none';
-    }
-
-    summaryTotalEl.textContent = `R$ ${total.toFixed(2)}`;
-});
+    <script src="js/checkout.js"></script>
+</body>
+</html>
