@@ -1,0 +1,27 @@
+// Script para a página checkout.html
+document.addEventListener('DOMContentLoaded', () => {
+    const cartData = JSON.parse(localStorage.getItem('shoppingCart'));
+    const summaryItemsContainer = document.getElementById('summary-items');
+    const summaryTotalEl = document.getElementById('summary-total');
+    const checkoutPayment = document.querySelector('.checkout-payment');
+    let total = 0;
+
+    if (cartData && cartData.length > 0) {
+        cartData.forEach(item => {
+            const itemEl = document.createElement('div');
+            itemEl.className = 'summary-item';
+            itemEl.innerHTML = `
+                <span>${item.quantity}x ${item.name}</span>
+                <span>R$ ${(item.price * item.quantity).toFixed(2)}</span>
+            `;
+            summaryItemsContainer.appendChild(itemEl);
+            total += item.price * item.quantity;
+        });
+    } else {
+        // Se a sacola estiver vazia, esconde a área de pagamento e mostra uma mensagem
+        summaryItemsContainer.innerHTML = '<p>Sua sacola de compras está vazia. <a href="index.html">Voltar para o cardápio</a>.</p>';
+        checkoutPayment.style.display = 'none';
+    }
+
+    summaryTotalEl.textContent = `R$ ${total.toFixed(2)}`;
+});
