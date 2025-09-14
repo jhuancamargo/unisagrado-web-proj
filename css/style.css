@@ -281,3 +281,190 @@ footer {
         grid-template-columns: 60% 40%; /* Duas colunas em telas maiores */
     }
 }
+
+
+/* --- MODAL DA SACOLA (ESTILO SLIDE IFOOD) --- */
+
+/* O fundo escuro que cobre a página */
+.cart-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Um pouco mais escuro para dar mais foco */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+    z-index: 2000;
+}
+
+/* Adiciona a classe 'visible' para mostrar o modal */
+.cart-modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* A sacola em si, agora como um painel lateral */
+.cart-modal {
+    position: fixed;
+    top: 0;
+    right: 0; /* Alinhado à direita da tela */
+    width: 100%;
+    max-width: 450px; /* Largura máxima em telas de PC */
+    height: 100%;
+    background-color: var(--white);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    
+    /* A MÁGICA DO SLIDE ACONTECE AQUI */
+    transform: translateX(100%); /* Começa "escondido" fora da tela, à direita */
+    transition: transform 0.4s ease-in-out; /* Animação suave para o deslize */
+}
+
+/* Quando a classe 'visible' é adicionada, a sacola desliza para dentro da tela */
+.cart-modal-overlay.visible .cart-modal {
+    transform: translateX(0); /* Volta para a posição original (right: 0) */
+}
+
+.cart-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0; /* Impede que o header encolha */
+}
+.cart-modal-header h2 { font-size: 1.2rem; }
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.cart-modal-body {
+    padding: 20px;
+    overflow-y: auto; /* Adiciona scroll se os itens não couberem */
+    flex-grow: 1; /* Faz esta área ocupar todo o espaço disponível */
+}
+.cart-empty-message {
+    color: var(--light-text);
+    text-align: center;
+    margin-top: 20px;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.cart-item:last-child {
+    border-bottom: none;
+}
+.cart-item-info {
+    font-weight: 600;
+}
+.cart-item-info span {
+    display: block;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--light-text);
+}
+.cart-modal-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    flex-shrink: 0; /* Impede que o footer encolha */
+}
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.checkout-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.checkout-btn:hover {
+    background-color: #6d1511;
+}
+
+/* --- NAVBAR (MENU SUPERIOR) --- */
+.navbar {
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky; /* Fica fixo no topo ao rolar a página */
+    top: 0;
+    z-index: 1000;
+    padding: 10px 0;
+}
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--dark-text);
+}
+.navbar-cart {
+    position: relative;
+    cursor: pointer;
+}
+.navbar-cart i {
+    font-size: 2rem;
+    color: var(--dark-text);
+}
+.cart-counter {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* --- ESTILOS DOS CARDS DE PRODUTO ATUALIZADOS --- */
+.card-produto-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.add-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.add-btn:hover {
+    background-color: #6d1511;
+}

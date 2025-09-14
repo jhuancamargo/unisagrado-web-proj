@@ -14,9 +14,20 @@
 <body>
 
     <nav class="navbar">
-        </nav>
+        <div class="container navbar-content">
+            <div class="navbar-brand">
+                <img src="https://i.ibb.co/L5B11q2/logo-unisagrado.png" alt="Logo UNISAGRADO" class="logo">
+                <span>Cantina & Store</span>
+            </div>
+            <div class="navbar-cart" id="open-cart-btn">
+                <i class="ph ph-shopping-bag"></i>
+                <span class="cart-counter" id="cart-counter">0</span>
+            </div>
+        </div>
+    </nav>
 
     <main class="container">
+        
         <section id="destaques" class="section-card">
             <h2>Destaques do Dia ✨</h2>
             <div class="destaques-container">
@@ -121,7 +132,28 @@
             </div>
         </section>
 
-        </main>
+    </main>
+
+    <div class="cart-modal-overlay" id="cart-modal-overlay">
+        <div class="cart-modal">
+            <div class="cart-modal-header">
+                <h2>Sua Sacola</h2>
+                <button class="close-btn" id="close-cart-btn"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="cart-modal-body" id="cart-items">
+                <p class="cart-empty-message">Sua sacola está vazia.</p>
+            </div>
+            <div class="cart-modal-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total">R$ 0,00</span>
+                </div>
+                <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+    
     <script src="js/main.js"></script>
+
 </body>
 </html>
