@@ -468,3 +468,43 @@ footer {
 .add-btn:hover {
     background-color: #6d1511;
 }
+
+/* ---- ACESSIBILIDADE E AVISOS --- */
+
+/* Foco visível e acessibilidade */
+button:focus,
+a:focus,
+[role="button"]:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+/* Skip link (visível apenas no foco) */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  background: var(--primary-color);
+  color: var(--white);
+  border-radius: 4px;
+  z-index: 2000;
+}
+
+/* Aviso no-js */
+.no-js-warning {
+  background: #fff3cd;
+  color: #856404;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 10px 0;
+  text-align: center;
+}
