@@ -1,0 +1,17 @@
+# Manual do Usuário - Cardápio Digital
+
+## Tela Inicial (index.htm)
+- Exibe seções: Destaques, Cardápio (Comida, Bebida, Materiais).
+- Em cada produto há imagem, nome, descrição e preço.
+
+## Sacola (modal)
+- Clicar no ícone sacola abre o modal.
+- O modal mostra lista de intens, quantidade (por produto) e total.
+- Botão Finalizar Compra leva para `checkout.html`.
+
+## Página de Checkout (checkout.html)
+- Mostra o resumo dos itens salvos no `localStorage`.
+- O usuário pode ajustar quantidades.
+
+## Observações
+- Atualizações feitas no `index.html` (adicionar produtos) refletem no carrinho ao clicar em Adicionar.
