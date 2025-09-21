@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addToCartButtons.forEach(button => {
         // ...adicione um "ouvinte" de clique.
         button.addEventListener('click', () => {
-            // Quando o botão for clicado:
+            // Quando o botão for clicado:  
             const name = button.getAttribute('data-name'); // Pega o nome do produto do atributo 'data-name'.
             const price = parseFloat(button.getAttribute('data-price')); // Pega o preço.
             

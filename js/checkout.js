@@ -1,24 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Carrega o carrinho do localStorage ou cria um vazio
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     const summaryItemsContainer = document.getElementById('summary-items');
     const summaryTotalEl = document.getElementById('summary-total');
-    const checkoutPayment = document.querySelector('.checkout-payment');
+    const payBtn = document.querySelector('.pay-btn');
+    const confirmationOverlay = document.getElementById('confirmation-overlay');
 
-    // Função para salvar o carrinho no localStorage
     function saveCart() {
         localStorage.setItem('shoppingCart', JSON.stringify(cart));
     }
 
-    // Função principal que desenha a sacola na tela
     function renderSummary() {
         summaryItemsContainer.innerHTML = '';
         let total = 0;
-
         if (cart.length === 0) {
             summaryItemsContainer.innerHTML = '<p>Sua sacola de compras está vazia. <a href="index.html">Voltar ao cardápio</a>.</p>';
-            if(checkoutPayment) checkoutPayment.style.display = 'none';
+            payBtn.disabled = true;
         } else {
+            payBtn.disabled = false;
             cart.forEach((item, index) => {
                 const itemEl = document.createElement('div');
                 itemEl.className = 'summary-item';
@@ -41,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
         summaryTotalEl.textContent = `R$ ${total.toFixed(2)}`;
     }
 
-    // Função para ajustar a quantidade ou remover itens
     function updateItem(index, action) {
         if (index > -1 && index < cart.length) {
             switch (action) {
@@ -51,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 case 'decrease':
                     cart[index].quantity--;
                     if (cart[index].quantity === 0) {
-                        cart.splice(index, 1); // Remove se a quantidade for 0
+                        cart.splice(index, 1);
                     }
                     break;
                 case 'remove':
@@ -59,17 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
             }
             saveCart();
-            renderSummary(); // Re-desenha a sacola com os novos dados
+            renderSummary();
         }
     }
 
-    // Adiciona os eventos de clique para os botões de controle da sacola
     summaryItemsContainer.addEventListener('click', (event) => {
         const target = event.target.closest('button');
         if (!target) return;
-
         const index = parseInt(target.dataset.index);
-        
         if (target.classList.contains('quantity-btn')) {
             const action = target.dataset.action;
             updateItem(index, action);
@@ -78,6 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Desenha a sacola na tela assim que a página carrega
+    payBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        confirmationOverlay.classList.add('visible');
+        localStorage.removeItem('shoppingCart');
+    });
+
     renderSummary();
 });

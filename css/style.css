@@ -8,405 +8,27 @@
     --border-radius: 8px;
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--secondary-color);
     color: var(--dark-text);
 }
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* --- CABEÇALHO --- */
-header {
-    background-color: var(--white);
-    padding: 15px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.header-content {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo {
-    height: 50px;
-}
-
-.header-title h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-}
-
-.header-title p {
-    font-size: 1rem;
-    color: var(--light-text);
-}
-
-/* --- ESTILO GERAL DOS CARDS DE SEÇÃO --- */
-.section-card {
-    background-color: var(--white);
-    margin-top: 25px;
-    padding: 20px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.section-card h2 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: var(--dark-text);
-}
-
-.section-card h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-top: 25px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 5px;
-    display: inline-block;
-}
-
-/* --- SEÇÃO DE DESTAQUES --- */
-.destaques-container {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto; /* Permite scroll horizontal no mobile */
-    padding-bottom: 10px;
-}
-
-.card-destaque {
-    flex: 0 0 220px; /* Não encolhe, não cresce, base de 220px */
-    border: 1px solid #eee;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    background: #fafafa;
-}
-
-.card-destaque img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-}
-
-.card-destaque h3 {
-    font-size: 1rem;
-    padding: 10px 10px 0 10px;
-    border: none;
-    margin: 0;
-}
-
-.price {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    padding: 5px 10px 10px 10px;
-}
-
-/* --- SEÇÃO DE PRODUTOS --- */
-.grid-produtos {
-    display: grid;
-    grid-template-columns: 1fr; /* 1 coluna no mobile */
-    gap: 15px;
-}
-
-.card-produto {
-    background-color: #f9f9f9;
-    border: 1px solid #eee;
-    padding: 15px;
-    border-radius: var(--border-radius);
-}
-
-.card-produto h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.card-produto p {
-    font-size: 0.9rem;
-    color: var(--light-text);
-    margin: 5px 0;
-}
-
-/* --- SEÇÃO DE INFORMAÇÕES --- */
-.info-content p {
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-/* --- RODAPÉ --- */
-footer {
-    text-align: center;
-    padding: 25px;
-    margin-top: 20px;
-    color: var(--light-text);
-    font-size: 0.9rem;
-}
-
-/* --- RESPONSIVIDADE PARA TABLETS E DESKTOPS --- */
-@media (min-width: 768px) {
-    .header-title h1 {
-        font-size: 1.8rem;
-    }
-
-    /* Ajusta o grid de produtos para mais colunas */
-    .grid-produtos {
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas */
-    }
-
-    .destaques-container {
-        overflow-x: visible; /* Remove o scroll */
-        justify-content: center;
-    }
-
-    .card-destaque {
-        flex-basis: 280px; /* Aumenta o tamanho base */
-    }
-}
-
-@media (min-width: 1024px) {
-    /* Ajusta o grid para 3 colunas em telas maiores */
-    .grid-produtos {
-        grid-template-columns: repeat(3, 1fr); /* 3 colunas */
-    }
-}
-
-/* --- POLIMENTO VISUAL ADICIONAL --- */
-.card-produto {
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-.card-produto:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-}
-.card-produto img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    border-radius: var(--border-radius);
-    margin-bottom: 10px;
-}
-
-/* --- ESTILOS DA PÁGINA DE CHECKOUT REFORMULADA --- */
-.checkout-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.checkout-header h1 {
-    font-size: 1.8rem;
-}
-.back-link {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-}
-.checkout-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-}
-.checkout-form .form-group {
-    margin-bottom: 15px;
-}
-.checkout-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-.checkout-form input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-/* Sacola na página de checkout */
-.summary-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #eee;
-}
-.summary-item-details {
-    font-weight: 600;
-}
-.summary-item-details span {
-    display: block;
-    font-size: 0.9rem;
-    color: var(--light-text);
-    font-weight: 400;
-}
-.summary-item-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.quantity-btn {
-    background-color: #eee;
-    border: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    font-weight: 600;
-    cursor: pointer;
-}
-.remove-item-checkout {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--primary-color);
-    font-size: 1.2rem;
-}
-
-@media (min-width: 992px) {
-    .checkout-container {
-        grid-template-columns: 60% 40%; /* Duas colunas em telas maiores */
-    }
-}
-
-
-/* --- MODAL DA SACOLA (ESTILO SLIDE IFOOD) --- */
-
-/* O fundo escuro que cobre a página */
-.cart-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Um pouco mais escuro para dar mais foco */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
-    z-index: 2000;
-}
-
-/* Adiciona a classe 'visible' para mostrar o modal */
-.cart-modal-overlay.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* A sacola em si, agora como um painel lateral */
-.cart-modal {
-    position: fixed;
-    top: 0;
-    right: 0; /* Alinhado à direita da tela */
-    width: 100%;
-    max-width: 450px; /* Largura máxima em telas de PC */
-    height: 100%;
-    background-color: var(--white);
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    
-    /* A MÁGICA DO SLIDE ACONTECE AQUI */
-    transform: translateX(100%); /* Começa "escondido" fora da tela, à direita */
-    transition: transform 0.4s ease-in-out; /* Animação suave para o deslize */
-}
-
-/* Quando a classe 'visible' é adicionada, a sacola desliza para dentro da tela */
-.cart-modal-overlay.visible .cart-modal {
-    transform: translateX(0); /* Volta para a posição original (right: 0) */
-}
-
-.cart-modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    border-bottom: 1px solid #eee;
-    flex-shrink: 0; /* Impede que o header encolha */
-}
-.cart-modal-header h2 { font-size: 1.2rem; }
-.close-btn {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-.cart-modal-body {
-    padding: 20px;
-    overflow-y: auto; /* Adiciona scroll se os itens não couberem */
-    flex-grow: 1; /* Faz esta área ocupar todo o espaço disponível */
-}
-.cart-empty-message {
-    color: var(--light-text);
-    text-align: center;
-    margin-top: 20px;
-}
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #f0f0f0;
-}
-.cart-item:last-child {
-    border-bottom: none;
-}
-.cart-item-info {
-    font-weight: 600;
-}
-.cart-item-info span {
-    display: block;
-    font-weight: 400;
-    font-size: 0.9rem;
-    color: var(--light-text);
-}
-.cart-modal-footer {
-    padding: 20px;
-    border-top: 1px solid #eee;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-    flex-shrink: 0; /* Impede que o footer encolha */
-}
-.cart-total {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-.checkout-btn {
-    width: 100%;
-    background-color: var(--primary-color);
-    color: var(--white);
-    border: none;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-.checkout-btn:hover {
-    background-color: #6d1511;
-}
-
 /* --- NAVBAR (MENU SUPERIOR) --- */
 .navbar {
     background-color: var(--white);
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    position: sticky; /* Fica fixo no topo ao rolar a página */
+    position: sticky;
     top: 0;
     z-index: 1000;
     padding: 10px 0;
@@ -424,6 +46,7 @@ footer {
     font-size: 1.2rem;
     color: var(--dark-text);
 }
+.logo { height: 50px; }
 .navbar-cart {
     position: relative;
     cursor: pointer;
@@ -448,12 +71,41 @@ footer {
     font-weight: 600;
 }
 
+/* --- ESTILO GERAL DOS CARDS DE SEÇÃO --- */
+.section-card {
+    background-color: var(--white);
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+.section-card h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--dark-text);
+}
+.section-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
 /* --- ESTILOS DOS CARDS DE PRODUTO ATUALIZADOS --- */
 .card-produto-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+}
+.price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
 }
 .add-btn {
     background-color: var(--primary-color);
@@ -469,14 +121,102 @@ footer {
     background-color: #6d1511;
 }
 
-/* --- REFINAMENTO VISUAL DA PÁGINA DE CHECKOUT --- */
+/* --- MODAL DA SACOLA (ESTILO SLIDE IFOOD) --- */
+.cart-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+    z-index: 2000;
+}
+.cart-modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.cart-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    background-color: var(--white);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+}
+.cart-modal-overlay.visible .cart-modal {
+    transform: translateX(0);
+}
+.cart-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;
+}
+.cart-modal-header h2 { font-size: 1.2rem; }
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.cart-modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.cart-item:last-child { border-bottom: none; }
+.cart-modal-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+}
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.checkout-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.checkout-btn:hover {
+    background-color: #6d1511;
+}
 
-/* Ajusta o fundo da página para destacar os cards */
+/* --- REFINAMENTO VISUAL DA PÁGINA DE CHECKOUT --- */
 body.checkout-page {
     background-color: var(--secondary-color);
 }
-
-/* Melhora o espaçamento e a hierarquia do cabeçalho */
 .checkout-header {
     padding-bottom: 10px;
     margin-bottom: 20px;
@@ -486,14 +226,13 @@ body.checkout-page {
     font-size: 2rem;
     color: var(--dark-text);
 }
-.back-link:hover {
-    text-decoration: underline;
+.back-link:hover { text-decoration: underline; }
+.checkout-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
 }
-
-/* Estilização profissional para os campos do formulário */
-.checkout-form .form-group {
-    margin-bottom: 20px;
-}
+.checkout-form .form-group { margin-bottom: 20px; }
 .checkout-form label {
     display: block;
     margin-bottom: 8px;
@@ -510,30 +249,27 @@ body.checkout-page {
     font-family: 'Poppins', sans-serif;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
-
-/* Efeito de foco para guiar o usuário e indicar o campo ativo */
 .checkout-form input:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(140, 29, 24, 0.15);
 }
-
-/* Melhora a aparência das opções de pagamento */
 .payment-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
     border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
     transition: border-color 0.3s, background-color 0.3s;
 }
-.payment-option:hover {
-    background-color: #f9f9f9;
-}
-
-/* Estilo para a opção de pagamento selecionada */
+.payment-option:hover { background-color: #f9f9f9; }
 .payment-option:has(input:checked) {
     border-color: var(--primary-color);
     background-color: #fef5f5;
 }
-
-/* Botão de pagamento mais destacado */
 .pay-btn {
     padding: 18px;
     font-size: 1.1rem;
@@ -547,18 +283,17 @@ body.checkout-page {
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(140, 29, 24, 0.3);
 }
-
-/* Refinamento do card de resumo da sacola */
 .checkout-right.section-card {
-    background-color: #fdfdfd; /* Um branco levemente diferente para contraste */
+    background-color: #fdfdfd;
     border: 1px solid #e9e9e9;
 }
-.checkout-right h2 {
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
     border-bottom: 1px solid #eee;
-    padding-bottom: 15px;
 }
-
-/* Melhora a aparência do total */
 .summary-total {
     padding-top: 20px;
     margin-top: 10px;
@@ -566,4 +301,77 @@ body.checkout-page {
 }
 .summary-total span:last-child {
     color: var(--primary-color);
+}
+
+/* --- POP-UP DE CONFIRMAÇÃO DE PAGAMENTO --- */
+.confirmation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 3000;
+}
+.confirmation-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.confirmation-modal {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    transform: scale(0.9);
+    transition: transform 0.3s;
+}
+.confirmation-overlay.visible .confirmation-modal {
+    transform: scale(1);
+}
+.success-icon {
+    font-size: 5rem;
+    color: #28a745;
+}
+.confirmation-modal h2 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: var(--dark-text);
+}
+.confirmation-modal p {
+    color: var(--light-text);
+    margin-bottom: 25px;
+}
+.back-to-home-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+.back-to-home-btn:hover {
+    background-color: #6d1511;
+}
+
+/* --- RESPONSIVIDADE FINAL --- */
+@media (min-width: 992px) {
+    .checkout-container {
+        grid-template-columns: 60% 1fr;
+    }
+}
+@media (min-width: 1024px) {
+    .grid-produtos {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
