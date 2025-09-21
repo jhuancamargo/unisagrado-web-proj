@@ -468,3 +468,102 @@ footer {
 .add-btn:hover {
     background-color: #6d1511;
 }
+
+/* --- REFINAMENTO VISUAL DA PÁGINA DE CHECKOUT --- */
+
+/* Ajusta o fundo da página para destacar os cards */
+body.checkout-page {
+    background-color: var(--secondary-color);
+}
+
+/* Melhora o espaçamento e a hierarquia do cabeçalho */
+.checkout-header {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.checkout-header h1 {
+    font-size: 2rem;
+    color: var(--dark-text);
+}
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Estilização profissional para os campos do formulário */
+.checkout-form .form-group {
+    margin-bottom: 20px;
+}
+.checkout-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--light-text);
+}
+.checkout-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Efeito de foco para guiar o usuário e indicar o campo ativo */
+.checkout-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(140, 29, 24, 0.15);
+}
+
+/* Melhora a aparência das opções de pagamento */
+.payment-option {
+    border: 2px solid #ddd;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+.payment-option:hover {
+    background-color: #f9f9f9;
+}
+
+/* Estilo para a opção de pagamento selecionada */
+.payment-option:has(input:checked) {
+    border-color: var(--primary-color);
+    background-color: #fef5f5;
+}
+
+/* Botão de pagamento mais destacado */
+.pay-btn {
+    padding: 18px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(140, 29, 24, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.pay-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(140, 29, 24, 0.3);
+}
+
+/* Refinamento do card de resumo da sacola */
+.checkout-right.section-card {
+    background-color: #fdfdfd; /* Um branco levemente diferente para contraste */
+    border: 1px solid #e9e9e9;
+}
+.checkout-right h2 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+/* Melhora a aparência do total */
+.summary-total {
+    padding-top: 20px;
+    margin-top: 10px;
+    border-top: 2px solid var(--dark-text);
+}
+.summary-total span:last-child {
+    color: var(--primary-color);
+}
