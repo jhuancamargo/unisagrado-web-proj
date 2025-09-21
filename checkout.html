@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    </head>
-<body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - UNISAGRADO</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="checkout-page">
+
     <nav class="navbar">
-        </nav>
+        <div class="container navbar-content">
+            <div class="navbar-brand">
+                <img src="https://i.ibb.co/L5B11q2/logo-unisagrado.png" alt="Logo UNISAGRADO" class="logo">
+                <span>Finalizar Compra</span>
+            </div>
+        </div>
+    </nav>
     
     <main class="container">
         <div class="checkout-header">
@@ -27,8 +43,21 @@
                         </div>
                     </form>
                 </div>
+
                 <div class="section-card">
                     <h2>Método de Pagamento</h2>
+                    <form>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="pix" checked>
+                            <i class="ph ph-qr-code"></i>
+                            <span>PIX</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="card">
+                            <i class="ph ph-credit-card"></i>
+                            <span>Cartão de Crédito</span>
+                        </label>
+                    </form>
                     <button class="pay-btn">Pagar Agora</button>
                 </div>
             </div>
