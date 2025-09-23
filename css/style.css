@@ -47,9 +47,20 @@ body {
     color: var(--dark-text);
 }
 .logo { height: 50px; }
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto; /* Empurra todo o grupo para a direita */
+}
+
 .navbar-cart {
     position: relative;
     cursor: pointer;
+    align-items: center;
+    margin-left: 10;      /* novo */
+
 }
 .navbar-cart i {
     font-size: 2rem;
@@ -427,6 +438,39 @@ body.checkout-page {
 .back-to-home-btn:hover {
     background-color: #6d1511;
 }
+
+/* --- BOTÕES DE IDIOMA --- */
+.language-selector {
+    display: flex;
+    align-items: right;
+    gap: 8px;
+    margin-left: auto; /* Empurra para a direita */
+    margin-right: 20px; /* Espaço antes do carrinho */
+}
+.language-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+.language-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+.language-btn.active {
+    opacity: 1;
+    border: 2px solid var(--primary-color);
+}
+.flag-icon {
+    width: 30px;
+    height: 20px;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
 
 /* --- RESPONSIVIDADE FINAL --- */
 @media (min-width: 768px) {
