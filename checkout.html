@@ -17,24 +17,24 @@
         <div class="container navbar-content">
             <div class="navbar-brand">
                 <img src="https://i.ibb.co/L5B11q2/logo-unisagrado.png" alt="Logo UNISAGRADO" class="logo">
-                <span>Finalizar Compra</span>
+                <span data-translate="checkout.navbar.tittle"> Finalizar Compra</span>
             </div>
         </div>
     </nav>
     
     <main class="container">
         <div class="checkout-header">
-            <h1>Finalizar Compra</h1>
-            <a href="index.html" class="back-link">← Voltar ao cardápio</a>
+            <h1 data-translate="checkout.tittle"> Finalizar Compra</h1>
+            <a href="index.html" class="back-link" data-translate="button.back">← Voltar ao cardápio</a>
         </div>
         
         <div class="checkout-container">
             <div class="checkout-left">
                 <div class="section-card">
-                    <h2>Seus Dados</h2>
+                    <h2 data-translate="checkout.yourdata"> Seus Dados</h2>
                     <form class="checkout-form">
                         <div class="form-group">
-                            <label for="name">Nome Completo</label>
+                            <label for="name" data-translate="checkout.name">Nome Completo</label>
                             <input type="text" id="name" required>
                         </div>
                         <div class="form-group">
@@ -45,29 +45,29 @@
                 </div>
 
                 <div class="section-card">
-                    <h2>Método de Pagamento</h2>
+                    <h2 data-translate="checkout.payment"> Método de Pagamento</h2>
                     <form>
                         <label class="payment-option">
                             <input type="radio" name="payment" value="pix" checked>
                             <i class="ph ph-qr-code"></i>
-                            <span>PIX</span>
+                            <span data-translate="checkout.pix">PIX</span>
                         </label>
                         <label class="payment-option">
                             <input type="radio" name="payment" value="card">
                             <i class="ph ph-credit-card"></i>
-                            <span>Cartão de Crédito</span>
+                            <span data-translate="checkout.card"> Cartão de Crédito</span>
                         </label>
                     </form>
-                    <button class="pay-btn">Pagar Agora</button>
+                    <button class="pay-btn" data-translate="button.pay"> Pagar Agora</button>
                 </div>
             </div>
             
             <div class="checkout-right section-card">
-                <h2>Sua Sacola</h2>
+                <h2 data-translate="checkout.yourbag">Sua Sacola</h2>
                 <div id="summary-items">
                 </div>
                 <div class="summary-total">
-                    <span>Total:</span>
+                    <span data-translate="cart.total">span> Total:</span>
                     <span id="summary-total">R$ 0,00</span>
                 </div>
             </div>
@@ -77,9 +77,9 @@
     <div class="confirmation-overlay" id="confirmation-overlay">
         <div class="confirmation-modal">
             <i class="ph ph-check-circle success-icon"></i>
-            <h2>Pagamento Aprovado!</h2>
-            <p>Seu pedido foi processado com sucesso e em breve estará pronto.</p>
-            <a href="index.html" class="back-to-home-btn">Voltar ao Início</a>
+            <h2 data-translate="checkout.sucess.tittle"> Pagamento Aprovado!</h2>
+            <p data-translate="checkout.sucess.message">Seu pedido foi processado com sucesso e em breve estará pronto.</p>
+            <a href="index.html" class="back-to-home-btn" data-translate="button.backhome"> Voltar ao Início</a>
         </div>
     </div>
 
